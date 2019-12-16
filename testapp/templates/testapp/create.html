@@ -1,0 +1,43 @@
+{% include 'testapp/include/nav.html' %}
+{% load crispy_forms_tags %}
+
+
+<div class="container">
+    <form role="form" method="post">
+        {% csrf_token %}
+        <div class="row">
+            <div class="col-6">
+                {{ form.client_name|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.email|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.phone_number|as_crispy_field }}
+            </div>
+            <div class="col-6">
+                {{ form.address_street_name|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.address_suburb|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.address_state|as_crispy_field }}
+            </div>
+            <div class="col-3">
+                {{ form.address_post_code|as_crispy_field }}
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                {{ form.contact_name|as_crispy_field }}
+            </div>
+
+        </div>
+        <button type="submit" class="btn btn-primary">Add Client</button>
+    </form>
+</div>
