@@ -31,22 +31,34 @@ class AddView(CreateView):
 
 def search(request):
     query = request.GET.get('q', '')
-    name_option = request.GET.get('name')
-    phone_option = request.GET.get('phone_number')   
+    select_option = request.GET['inputClient']   
     
-    # name_results = Client.objects.filter(client_name__contains=query)
-    # phone_results = Client.objects.filter(phone_number__contains=query)
-    # email_results = Client.objects.filter(email__contains=query)
-    # suburb_results = Client.objects.filter(email__contains=query)
+    name_results = Client.objects.filter(client_name__contains=query)
+    phone_results = Client.objects.filter(phone_number__contains=query)
+    email_results = Client.objects.filter(email__contains=query)
+    suburb_results = Client.objects.filter(address_suburb__contains=query)
+    
     results = []
+    
 
-    if name_option:
-        name_results = Client.objects.filter(client_name__contains=query)
-        results.append(name_results)
-        print(name_results)
-    if phone_option:
-        phone_results = Client.objects.filter(phone_number__contains=query)
-        results.append(phone_results)
+    if select_option == 'Name':
+        for client in name_results:
+            results.append(client)
+
+    if select_option == 'Phone Number':
+        for phone in phone_results:
+            results.append(phone)
+    
+    if select_option == 'Email':
+        for email in email_results:
+            results.append(email)
+    
+    if select_option == 'Suburb':
+         for suburb in suburb_results:
+            results.append(suburb)       
+
+        
+
     return render(request, 'testapp/search.html', {
-        'results':results
+        'results': results
         })
