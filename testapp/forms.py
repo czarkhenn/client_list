@@ -13,4 +13,11 @@ class CreateForm(forms.ModelForm):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper()
         self.helper.form_method = 'post'
-        # self.helper.add_input(Submit('submit', 'Save person'))
+        self.fields['email'].label = "Email Adress"
+        self.fields['client_name'].label = "Name"
+        self.fields['phone_number'].label = "Phone Number"
+        self.fields['address_street_name'].label = "Street Name"
+        self.fields['address_suburb'].label = "Suburb"
+        self.fields['address_state'].label = "State"
+        self.fields['contact_name'].label = "Contact Name"
+        self.fields['address_post_code'].label = "Postal Code"
