@@ -6,7 +6,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
-        <a class="navbar-brand" href="#">Client List</a>
+        <a class="navbar-brand" href="{% url "home" %}">Client List</a>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="{% url "home" %}">Home<span class="sr-only">(current)</span></a>
@@ -20,19 +20,21 @@
 
     </li>
     </ul>
-    <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item">
-            <select id="inputClient" class="form-control">
-                <option name="name" selected>Name</option>
-                <option name="email">Email</option>
-                <option name="phone_number">Phone Number</option>
-            </select>
-        </li>
+
 
     </ul>
     <form class="form-inline my-2 my-lg-0" action="{% url 'search' %}" method="get" accept-charset="utf-8">
-        <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li class="nav-item">
+                <select name="inputClient" class="form-control">
+                    <option name="name">Name</option>
+                    <option name="email">Email</option>
+                    <option name="phone_number">Phone Number</option>
+                    <option name="suburb">Suburb</option>
+                </select>
+            </li>
+            <input name="q" class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+            <button class="btn btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
     </form>
     </div>
 </nav>

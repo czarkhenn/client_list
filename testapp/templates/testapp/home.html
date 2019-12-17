@@ -1,46 +1,47 @@
-{% load static %}
 {% include 'testapp/include/nav.html' %}
 
 
 <div class="container" style="padding-top: 100px;">
-    <table id="sort" class="table" width=100%>
-        <thead>
-            <tr>
-                <th scope="col">Name</th>
-                <th scope="col">Email</th>
-                <th scope="col">Phone Number</th>
-                <th scope="col">Street Name</th>
-                <th scope="col">Suburb</th>
-                <th scope="col">State</th>
-                <th scope="col">Postal Code</th>
-                <th scope="col">Contact Name</th>
+    <div class="table-responsive-sm">
+        <table id="sort" class="sortable-theme-bootstrap" data-sortable width=100%>
+            <thead>
+                <tr>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Phone Number</th>
+                    <th scope="col">Street Name</th>
+                    <th scope="col">Suburb</th>
+                    <th scope="col">State</th>
+                    <th scope="col">Postal Code</th>
+                    <th scope="col">Contact Name</th>
 
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                {% for client in object_list %}
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    {% for client in object_list %}
 
 
-                <td><a href="{% url 'update' client.id %}">{{client.client_name}}</a></td>
-                <td>{{client.email}}
-                </td>
-                <td>{{client.phone_number}}</td>
-                <td>{{client.address_street_name}}</td>
-                <td>{{client.address_suburb}}</td>
-                <td>{{client.address_state}}</td>
-                <td>{{client.address_post_code}}</td>
-                <td>{{client.contact_name}}</td>
+                    <td><a href="{% url 'update' client.id %}">{{client.client_name}}</a></td>
+                    <td>{{client.email}}
+                    </td>
+                    <td>{{client.phone_number}}</td>
+                    <td>{{client.address_street_name}}</td>
+                    <td>{{client.address_suburb}}</td>
+                    <td>{{client.address_state}}</td>
+                    <td>{{client.address_post_code}}</td>
+                    <td>{{client.contact_name}}</td>
 
-            </tr>
+                </tr>
 
-            {% endfor %}
-        </tbody>
-    </table>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
 
 
-<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<!-- <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
 <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
 </script>
@@ -48,5 +49,6 @@
 <script>
     $(document).ready(function () {
         $('#sort').DataTable();
+        $('.dataTables_length').addClass('bs-select');
     });
-</script>
+</script> -->
